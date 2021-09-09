@@ -4,12 +4,12 @@ Helper class for creating Winforms applications without IDE designer
 
 ## Motivation
 
-I'm stuck with C# and Winforms for the time being and as a web developer I think creating UI with code is a lot better and more consistent than buidling UI with Visual Studio / MonoDevelop / Jetbrains Rider form designer.
-Initially I thought coding UI in C# is quick and easy but it's repetitive and exhausting so I created this design template and helper library to help me code future apps faster.
+I'm stuck with C# and Winforms for the time being and as a web developer, I think creating UI with code is a lot better and more consistent than building UI with Visual Studio / MonoDevelop / Jetbrains Rider form designer.
+Initially, I thought coding UI in C# is quick and easy but it's repetitive and exhausting so I created this design template and helper library to help me code future apps faster.
 
 ### Features
 
- - [x] Modified Forms Fast creation of UI elements.
+ - [x] Modified Forms for fast creation of UI elements.
  - [x] Container size based on elements sizes and their spacings.
  - [ ] Modified Panels for recursively grouping UI elements.
 
@@ -17,11 +17,11 @@ Initially I thought coding UI in C# is quick and easy but it's repetitive and ex
 
 Create a new .NET Winforms project using Visual Studio or `dotnet new winforms`.
 
-Copy [helper.cs](helper.cs) to the your project.
+Copy [helper.cs](helper.cs) to your project.
 
-Delete other C# files except `Project.cs`.
+Delete other C# files except for `Project.cs`.
 
-Create a new form by making a new class derived from `Helper.Form`.
+Create a new form by making a new class derived from `Helper.Form`
 
 ```cs
 public class Form1 : Helper.Form {
@@ -63,11 +63,11 @@ Notes:
  - The form automatically starts at the center of your screen.
  - You can't resize the form but you can still move it.
 
-Use `Add(text, width)` to add a control with a defined width
+Use `Add(text, width)` to add a control with a defined width.
 
-You can add multiple controls on the same row, the form with automatically resize for you. `Break()` can be used to create a new row.
+You can add multiple controls on the same row, the form will resize for you. `Break()` can be used to create a new row.
 
-Use `margin` to change the spacing between the controls. Default value is 15.
+Use `margin` to change the spacing between the controls. The default value is 15.
 
 ```cs
 public class Form1 : Helper.Form {
@@ -117,7 +117,7 @@ Change the name textbox and the greet textbox should also change.
 
 ## Limitations
 
-Right now you can only use it to code simple UI elements like labels and buttons and textboxes but this library is still in development and I'll try to add recursive grouping to support complex elements and layouts.
+Right now you can only use it to code simple UI elements like labels, buttons, and textboxes but this library is still in development and I'll try to add recursive grouping to support complex elements and layouts.
 
 # License
 
