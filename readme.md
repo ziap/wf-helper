@@ -61,6 +61,8 @@ You can add multiple controls on the same row, the form will resize for you. `Br
 
 Use `margin` to change the spacing between the controls. The default value is 15.
 
+The default line height is 40, but you can change it by making a new line with `Break([new-height])` or change the height of the first row with `Application.Run(new Form1([first-height]))` instead.
+
 ```cs
 // Class Form1
 
