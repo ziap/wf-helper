@@ -14,6 +14,7 @@ namespace Helper
 
         public int margin = 15;
         public int border = 45;
+        public Color HoverColor = Color.Transparent;
         public float font_size
         {
             get { return font.Size; }
@@ -25,6 +26,14 @@ namespace Helper
             T t = new T();
             t.Font = font;
             t.Text = text;
+            if (t is Label) t.BackColor = BackColor;
+            else t.BackColor = ControlPaint.Light(BackColor, 0.1f);
+            t.ForeColor = ForeColor;
+            if (t is Button)
+            {
+                t.MouseEnter += (object sender, EventArgs e) => { t.BackColor = HoverColor; };
+                t.MouseLeave += (object sender, EventArgs e) => { t.BackColor = ControlPaint.Light(BackColor, 0.1f); };
+            }
             if (width == 0) width = TextRenderer.MeasureText(text, font).Width + 3;
             t.Size = new Size(width, height);
             t.Location = new Point(cursor_x + border, cursor_y + border);
@@ -39,17 +48,17 @@ namespace Helper
         {
             cursor_x = 0;
             cursor_y += height + margin;
-            if (new_height) height = new_height;
+            if (new_height != 0) height = new_height;
         }
 
         public Form(int first_height = 0)
         {
             font_size = 16;
-            if (first_height) height = first_height;
+            if (first_height != 0) height = first_height;
             MaximizeBox = false;
             MinimizeBox = false;
             FormBorderStyle = FormBorderStyle.FixedSingle;
-            Load += (object e, EventArgs args) => CenterToScreen();
+            Load += (object sender, EventArgs e) => CenterToScreen();
         }
 
         private void SetSize()
